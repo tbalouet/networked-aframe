@@ -73,6 +73,7 @@ class NetworkConnection {
     this.checkForDisconnectingClients(this.connectList, occupantList);
     this.connectList = occupantList;
     this.checkForConnectingClients(occupantList);
+    document.body.dispatchEvent(new CustomEvent('occupantsReceived', { detail: { name: roomName, occupantList: occupantList, myInfo: isPrimary } }));
   }
 
   checkForDisconnectingClients(oldOccupantList, newOccupantList) {
